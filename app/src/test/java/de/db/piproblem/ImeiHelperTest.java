@@ -5,17 +5,22 @@ import android.telephony.TelephonyManager;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 
 import de.db.piproblem.util.ImeiHelper;
 import mockit.Expectations;
 import mockit.Mocked;
 import mockit.Tested;
 import mockit.integration.junit4.JMockit;
+import mockit.internal.startup.Startup;
 
 import static org.junit.Assert.assertEquals;
 
-@RunWith(JMockit.class)
+@RunWith(RobolectricTestRunner.class)
 public class ImeiHelperTest {
+
+    static { Startup.initializeIfPossible(); }
+
     private final String defaultImei = "123456789012345";
 
     @Tested
